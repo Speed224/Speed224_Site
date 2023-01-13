@@ -17,11 +17,13 @@ class GetColor {
 
   //Color foregroundColor() => Theme.of(_context).primaryColorLight;
 
-  Color? foregroundColor() => Theme.of(_context).appBarTheme.foregroundColor;
+  Color foregroundColor() => Theme.of(_context).appBarTheme.foregroundColor!;
 
   Color primaryDarkColor() => Theme.of(_context).primaryColorDark;
 
   Color shadowColor() => Theme.of(_context).shadowColor;
 
   Color dialogBackgroundColor() => Theme.of(_context).dialogBackgroundColor;
+
+  Color unselectedItem() => Theme.of(_context).tabBarTheme.unselectedLabelColor!;
 }

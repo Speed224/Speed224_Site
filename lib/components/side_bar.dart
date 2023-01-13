@@ -16,9 +16,9 @@ class SideBarX extends StatelessWidget {
         SidebarXItem(icon: Icons.home, label: 'Home'),
         SidebarXItem(icon: Icons.search, label: 'Search'),
       ],
-      footerDivider: divider,
-      theme: draculaSidebarXTheme(context),
-      extendedTheme: draculaExtendedSidebarXTheme(),
+      footerDivider: Divider(color: Theme.of(context).dividerColor, height: 1),
+      theme: sXTheme(context),
+      extendedTheme: sXExtendedTheme(context),
     );
   }
 }

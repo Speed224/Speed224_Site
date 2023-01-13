@@ -2,10 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:sidebarx/sidebarx.dart';
 import 'package:speed224_site/theme/get_context_theme.dart';
 
+const circularRadius = 10.0;
+
 //theme for sidebar
-SidebarXTheme draculaSidebarXTheme(BuildContext context) {
+SidebarXTheme sXTheme(
+  BuildContext context, {
+  double width = 70,
+}) {
   GetColor colors = GetColor(context: context);
   return SidebarXTheme(
+    width: width,
+    itemTextPadding: const EdgeInsets.only(left: 50),
+    selectedItemTextPadding: const EdgeInsets.only(left: 50),
     //distance bar from left page
     margin: const EdgeInsets.all(0),
     //selected item box
@@ -46,11 +54,11 @@ SidebarXTheme draculaSidebarXTheme(BuildContext context) {
           blurRadius: 30,
         )
       ],
-    ),
+    ), //not active item icon
     iconTheme: IconThemeData(
-      color: colors.foregroundColor(),
+      color: colors.unselectedItem(),
       size: 20,
-    ),
+    ), //active item icon
     selectedIconTheme: IconThemeData(
       color: colors.foregroundColor(),
       size: 20,
@@ -58,28 +66,29 @@ SidebarXTheme draculaSidebarXTheme(BuildContext context) {
   );
 }
 
-SidebarXTheme draculaSBT() {
-  return SidebarXTheme(
-      //TODO check API to capire qualcosa ocropoid
-      );
+//Theme for extended sidebar
+SidebarXTheme sXExtendedTheme(BuildContext context) {
+  return sXTheme(context, width: 200);
 }
 
-//Theme for extended sidebar
-SidebarXTheme draculaExtendedSidebarXTheme() {
-  return const SidebarXTheme(
+/*
+SidebarXTheme sXEX(BuildContext context) {
+  GetColor colors = GetColor(context: context);
+  return SidebarXTheme(
     width: 200,
     decoration: BoxDecoration(
-      color: canvasColor,
-      borderRadius: BorderRadius.only(
+      color: colors.canvasColor(),
+      borderRadius: const BorderRadius.only(
           topLeft: Radius.zero,
           bottomLeft: Radius.zero,
           topRight: Radius.circular(circularRadius),
           bottomRight: Radius.circular(circularRadius)),
     ),
-    itemTextPadding: EdgeInsets.only(left: 50),
-    selectedItemTextPadding: EdgeInsets.only(left: 50),
+    itemTextPadding: const EdgeInsets.only(left: 50),
+    selectedItemTextPadding: const EdgeInsets.only(left: 50),
   );
 }
+
 
 //IDK
 const primaryColor = Color(0xFF685BFF);
@@ -97,8 +106,6 @@ final actionColor = const Color(0xFF5F5FA7).withOpacity(0.6);
 final divider = Divider(color: white.withOpacity(0.3), height: 1);
 
 const fluoColor = Color.fromARGB(255, 255, 0, 242);
-
-const circularRadius = 10.0;
 
 //vscode sidebar #21222C
 const draculaDarkerBackgound = Color.fromARGB(255, 33, 34, 44);
@@ -126,3 +133,5 @@ const draculaPurple = Color.fromARGB(255, 189, 147, 249);
 const draculaRed = Color.fromARGB(255, 255, 85, 85);
 
 const draculaYellow = Color.fromARGB(255, 241, 250, 140);
+
+*/
