@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:speed224_site/translations/locale_keys.g.dart';
@@ -108,9 +107,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async{
-           await context.setLocale(Locale("en"));
-           },
+        onPressed: () async {
+          await context.setLocale(Locale("en"));
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.

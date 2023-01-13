@@ -1,4 +1,6 @@
 {
   "test_message": "{} sono scritti in {}",
-  "side_bar_info": "Me medesimo"
+  "side_bar_info": "Me medesimo",
+  "sidebar_home": "Casa",
+  "sidebar_language": "Lingua"
 }

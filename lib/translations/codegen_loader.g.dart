@@ -16,11 +16,15 @@ class CodegenLoader extends AssetLoader{
 
   static const Map<String,dynamic> en = {
   "test_message": "{} are writte in the {} language",
-  "side_bar_info": "About me"
+  "side_bar_info": "About me",
+  "sidebar_home": "Home",
+  "sidebar_language": "Language"
 };
 static const Map<String,dynamic> it = {
   "test_message": "{} sono scritti in {}",
-  "side_bar_info": "Me medesimo"
+  "side_bar_info": "Me medesimo",
+  "sidebar_home": "Casa",
+  "sidebar_language": "Lingua"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "it": it};
 }

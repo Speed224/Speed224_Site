@@ -8,12 +8,14 @@ const circularRadius = 10.0;
 SidebarXTheme sXTheme(
   BuildContext context, {
   double width = 70,
+  double itemPadding = 10,
+  double selectedItemPadding = 10,
 }) {
   GetColor colors = GetColor(context: context);
   return SidebarXTheme(
     width: width,
-    itemTextPadding: const EdgeInsets.only(left: 50),
-    selectedItemTextPadding: const EdgeInsets.only(left: 50),
+    itemTextPadding: EdgeInsets.only(left: itemPadding),
+    selectedItemTextPadding: EdgeInsets.only(left: selectedItemPadding),
     //distance bar from left page
     margin: const EdgeInsets.all(0),
     //selected item box
@@ -66,12 +68,13 @@ SidebarXTheme sXTheme(
   );
 }
 
+/*
 //Theme for extended sidebar
 SidebarXTheme sXExtendedTheme(BuildContext context) {
-  return sXTheme(context, width: 200);
+  return sXTheme(context, width: 150);
 }
 
-/*
+
 SidebarXTheme sXEX(BuildContext context) {
   GetColor colors = GetColor(context: context);
   return SidebarXTheme(

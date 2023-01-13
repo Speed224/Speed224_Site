@@ -1,4 +1,6 @@
 {
   "test_message": "{} are writte in the {} language",
-  "side_bar_info": "About me"
+  "side_bar_info": "About me",
+  "sidebar_home": "Home",
+  "sidebar_language": "Language"
 }
