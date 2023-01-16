@@ -21,6 +21,9 @@ class CodegenLoader extends AssetLoader{
     "aboutme": "About me",
     "home": "Home",
     "settings": "Settings"
+  },
+  "settings": {
+    "language": "Language"
   }
 };
 static const Map<String,dynamic> it = {
@@ -30,6 +33,9 @@ static const Map<String,dynamic> it = {
     "aboutme": "Chi sono",
     "home": "Home",
     "settings": "Impostazioni"
+  },
+  "settings": {
+    "language": "Lingua"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "it": it};

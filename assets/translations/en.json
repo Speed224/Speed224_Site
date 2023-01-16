@@ -5,5 +5,8 @@
     "aboutme": "About me",
     "home": "Home",
     "settings": "Settings"
+  },
+  "settings": {
+    "language": "Language"
   }
 }

@@ -7,5 +7,7 @@ abstract class  LocaleKeys {
   static const sidebar_home = 'sidebar.home';
   static const sidebar_settings = 'sidebar.settings';
   static const sidebar = 'sidebar';
+  static const settings_language = 'settings.language';
+  static const settings = 'settings';
 
 }

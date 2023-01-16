@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:speed224_site/components/icon_popup_menu.dart';
+import 'package:speed224_site/translations/locale_keys.g.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -11,11 +12,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Center(
-        child: Column(
-          children: [],
-        ),
-      ),
+      child: Center(),
     );
   }
 }

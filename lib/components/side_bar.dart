@@ -4,7 +4,9 @@ import 'package:speed224_site/theme/theme_side_bar_x.dart';
 
 import 'package:speed224_site/translations/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
+
 import 'package:speed224_site/views/home_page.dart';
+import 'package:speed224_site/views/settings_page.dart';
 
 class SideBarX extends StatelessWidget {
   final SidebarXController _controller;
@@ -58,6 +60,8 @@ class ScreensExample extends StatelessWidget {
         switch (controller.selectedIndex) {
           case 0:
             return HomePage();
+          case 2:
+            return SettingsPage();
           default:
             return Text(
               pageTitle,
