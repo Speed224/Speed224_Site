@@ -32,9 +32,9 @@ class SideBarX extends StatelessWidget {
       theme: sXTheme(context),
       extendedTheme: sXTheme(
         context,
-        width: 150,
-        itemPadding: 20,
-        selectedItemPadding: 20,
+        width: 170,
+        itemPadding: 10,
+        selectedItemPadding: 10,
       ),
       footerItems: [],
       //collapseIcon: , ICONDATA
