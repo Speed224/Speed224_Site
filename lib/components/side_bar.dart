@@ -4,6 +4,7 @@ import 'package:speed224_site/theme/theme_side_bar_x.dart';
 
 import 'package:speed224_site/translations/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:speed224_site/views/home_page.dart';
 
 class SideBarX extends StatelessWidget {
   final SidebarXController _controller;
@@ -23,14 +24,7 @@ class SideBarX extends StatelessWidget {
       items: [
         SidebarXItem(icon: Icons.home, label: LocaleKeys.sidebar_home.tr()),
         SidebarXItem(icon: Icons.search, label: 'Search'),
-        SidebarXItem(
-          icon: Icons.flag,
-          label: LocaleKeys.sidebar_language.tr(),
-          onTap: (() {
-            context.setLocale(Locale("en"));
-            //_controller.setExtended(true);
-          }),
-        ),
+        SidebarXItem(icon: Icons.settings, label: LocaleKeys.sidebar_settings.tr())
       ],
       footerDivider: Divider(color: Theme.of(context).dividerColor, height: 1),
       theme: sXTheme(context),
@@ -40,6 +34,7 @@ class SideBarX extends StatelessWidget {
         itemPadding: 20,
         selectedItemPadding: 20,
       ),
+      footerItems: [],
       //collapseIcon: , ICONDATA
     );
   }
@@ -62,19 +57,7 @@ class ScreensExample extends StatelessWidget {
         final pageTitle = _getTitleByIndex(controller.selectedIndex);
         switch (controller.selectedIndex) {
           case 0:
-            return ListView.builder(
-              padding: const EdgeInsets.only(top: 10),
-              itemBuilder: (context, index) => Container(
-                height: 100,
-                width: double.infinity,
-                margin: const EdgeInsets.only(bottom: 10, right: 10, left: 10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Theme.of(context).canvasColor,
-                  boxShadow: const [BoxShadow()],
-                ),
-              ),
-            );
+            return HomePage();
           default:
             return Text(
               pageTitle,
@@ -91,9 +74,9 @@ String _getTitleByIndex(int index) {
     case 0:
       return LocaleKeys.sidebar_home.tr();
     case 1:
-      return 'Search';
+      return LocaleKeys.sidebar_contact.tr();
     case 2:
-      return LocaleKeys.sidebar_language.tr();
+      return LocaleKeys.sidebar_settings.tr();
     /*case 3:
       return 'Favorites';
     case 4:
@@ -107,3 +90,14 @@ String _getTitleByIndex(int index) {
       return 'Not found page';
   }
 }
+
+/*
+        SidebarXItem(
+          icon: Icons.flag,
+          label: LocaleKeys.sidebar_settings.tr(),
+          onTap: (() {
+            context.setLocale(Locale("en"));
+            //_controller.setExtended(true);
+          }),
+        ),
+        */

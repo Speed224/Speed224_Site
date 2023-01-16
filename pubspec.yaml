@@ -95,3 +95,6 @@ flutter:
   assets:
       - assets/translations/
       - assets/theme/
+      - assets/icons/flags/it.png
+      - assets/icons/flags/gb.png
+      - assets/icons/flags/us.png

@@ -2,8 +2,10 @@
 
 abstract class  LocaleKeys {
   static const test_message = 'test_message';
-  static const side_bar_info = 'side_bar_info';
-  static const sidebar_home = 'sidebar_home';
-  static const sidebar_language = 'sidebar_language';
+  static const sidebar_contact = 'sidebar.contact';
+  static const sidebar_aboutme = 'sidebar.aboutme';
+  static const sidebar_home = 'sidebar.home';
+  static const sidebar_settings = 'sidebar.settings';
+  static const sidebar = 'sidebar';
 
 }

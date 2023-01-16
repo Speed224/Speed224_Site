@@ -1,41 +1,27 @@
-import 'package:flutter/material.dart';
-import 'package:sidebarx/sidebarx.dart';
-import 'package:speed224_site/components/side_bar.dart';
-
-import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:speed224_site/components/icon_popup_menu.dart';
 
 class HomePage extends StatelessWidget {
-  final ThemeData theme;
-
-  HomePage({super.key, required this.theme});
-
-  final _controller = SidebarXController(selectedIndex: 0, extended: false);
-  final _key = GlobalKey<ScaffoldState>();
+  const HomePage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      title: "Speed224.dev",
-      debugShowCheckedModeBanner: true,
-      theme: theme,
-      home: Scaffold(
-        body: Row(
-          children: [
-            SideBarX(
-              key: _key,
-              controller: _controller,
-            ),
-            Expanded(
-                child: Center(
-              child: ScreensExample(controller: _controller),
-            ))
-            // Your app screen body
-          ],
+    return Container(
+      child: Center(
+        child: Column(
+          children: [],
         ),
       ),
     );
   }
 }
+/*
+const Text(
+              "Hello World",
+              style: TextStyle(fontSize: 72),
+            )
+            */

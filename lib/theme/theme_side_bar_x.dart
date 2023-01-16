@@ -53,7 +53,7 @@ SidebarXTheme sXTheme(
         BoxShadow(
           //shadow all around the boxe
           color: colors.shadowColor(),
-          blurRadius: 30,
+          blurRadius: 10,
         )
       ],
     ), //not active item icon

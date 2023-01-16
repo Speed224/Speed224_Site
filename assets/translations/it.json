@@ -1,6 +1,9 @@
 {
   "test_message": "{} sono scritti in {}",
-  "side_bar_info": "Me medesimo",
-  "sidebar_home": "Casa",
-  "sidebar_language": "Lingua"
+  "sidebar": {
+    "contact": "Contattami",
+    "aboutme": "Chi sono",
+    "home": "Home",
+    "settings": "Impostazioni"
+  }
 }

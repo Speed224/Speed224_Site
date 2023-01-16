@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:speed224_site/translations/codegen_loader.g.dart';
-import 'package:speed224_site/views/home_page.dart';
+import 'package:speed224_site/views/main_page.dart';
 
 import 'package:flutter/services.dart'; // For rootBundle
 import 'dart:convert'; // For jsonDecode
