@@ -1,12 +1,17 @@
+/*
 import 'package:flutter/material.dart';
+import 'package:sidebarx/sidebarx.dart';
+import 'package:speed224_site/components/old_side_bar.dart';
 
 import 'package:easy_localization/easy_localization.dart';
-import 'package:speed224_site/components/side_bar.dart';
-import 'package:speed224_site/views/collapse_bar.dart';
 
 class MainPage extends StatelessWidget {
   final ThemeData theme;
+
   MainPage({super.key, required this.theme});
+
+  final _controller = SidebarXController(selectedIndex: 0, extended: false);
+  final _key = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +23,21 @@ class MainPage extends StatelessWidget {
       debugShowCheckedModeBanner: true,
       theme: theme,
       home: Scaffold(
-        body: SideBar(),
+        body: Row(
+          children: [
+            SideBarX(
+              key: _key,
+              controller: _controller,
+            ),
+            Expanded(
+                child: Center(
+              child: ScreensExample(controller: _controller),
+            ))
+            // Your app screen body
+          ],
+        ),
       ),
     );
   }
 }
-/*
-const Text(
-              "Hello World",
-              style: TextStyle(fontSize: 72),
-            )
-            */
+*/

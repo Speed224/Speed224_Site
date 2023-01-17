@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:speed224_site/translations/codegen_loader.g.dart';
-import 'package:speed224_site/views/main_page.dart';
+import 'package:speed224_site/views/old_main_page.dart';
 
 import 'package:flutter/services.dart'; // For rootBundle
 import 'dart:convert'; // For jsonDecode
 import 'package:json_theme/json_theme.dart';
 
-import 'views/sidebar.dart';
-import 'views/MyApp.dart';
+import 'views/main_page.dart';
 
 void main() async {
   // Needs to be called so that we can await for EasyLocalization.ensureInitialized();
@@ -26,9 +25,7 @@ void main() async {
         supportedLocales: const [Locale('en'), Locale('it')],
         fallbackLocale: const Locale('en'),
         assetLoader: const CodegenLoader(),
-        child: HomePage(
-          theme: draculaTheme,
-        )),
+        child: MainPage(theme: draculaTheme)),
   );
 }
 

@@ -1,107 +1,107 @@
+import 'dart:math' as math show pi;
+
+import 'package:speed224_site/theme/get_context_theme.dart';
+import 'package:collapsible_sidebar/collapsible_sidebar.dart';
 import 'package:flutter/material.dart';
-import 'package:sidebarx/sidebarx.dart';
-import 'package:speed224_site/theme/theme_side_bar_x.dart';
-
-import 'package:speed224_site/translations/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
-
 import 'package:speed224_site/views/home_page.dart';
-import 'package:speed224_site/views/settings_page.dart';
 
-class SideBarX extends StatelessWidget {
-  final SidebarXController _controller;
-
-  SideBarX({
-    Key? key,
-    required SidebarXController controller,
-  })  : _controller = controller,
-        super(key: key);
-  //inizia sul primo item e, estesa
-  //final _controller = SidebarXController(selectedIndex: 0, extended: false);
+class SideBar extends StatefulWidget {
+  const SideBar({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return SidebarX(
-      controller: _controller,
-      items: [
-        SidebarXItem(icon: Icons.home, label: LocaleKeys.sidebar_home.tr()),
-        SidebarXItem(icon: Icons.search, label: 'Search'),
-        SidebarXItem(icon: Icons.settings, label: LocaleKeys.sidebar_settings.tr())
-      ],
-      footerDivider: Divider(color: Theme.of(context).dividerColor, height: 1),
-      theme: sXTheme(context),
-      extendedTheme: sXTheme(
-        context,
-        width: 170,
-        itemPadding: 10,
-        selectedItemPadding: 10,
+  State<SideBar> createState() => _SideBarState();
+}
+
+class _SideBarState extends State<SideBar> {
+  late List<CollapsibleItem> _items;
+  late String _headline;
+  AssetImage _avatarImg = AssetImage('assets/man.png');
+
+  @override
+  void initState() {
+    super.initState();
+    _items = _generateItems;
+    _headline = _items.firstWhere((item) => item.isSelected).text;
+  }
+
+  List<CollapsibleItem> get _generateItems {
+    return [
+      CollapsibleItem(
+        text: 'Dashboard',
+        icon: Icons.assessment,
+        onPressed: () => setState(() => _headline = 'DashBoard'),
+        isSelected: true,
       ),
-      footerItems: [],
-      //collapseIcon: , ICONDATA
-    );
+      CollapsibleItem(
+        text: 'Ice-Cream',
+        icon: Icons.icecream,
+        onPressed: () => setState(() => _headline = 'Errors'),
+      ),
+      CollapsibleItem(
+        text: 'Search',
+        icon: Icons.search,
+        onPressed: () => setState(() => _headline = 'Search'),
+      ),
+    ];
   }
-}
 
-class ScreensExample extends StatelessWidget {
-  const ScreensExample({
-    Key? key,
-    required this.controller,
-  }) : super(key: key);
-
-  final SidebarXController controller;
-
+//TODO quando clicco gli item sulla barra deve scendere la pageview
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return AnimatedBuilder(
-      animation: controller,
-      builder: (context, child) {
-        final pageTitle = _getTitleByIndex(controller.selectedIndex);
-        switch (controller.selectedIndex) {
-          case 0:
-            return HomePage();
-          case 2:
-            return SettingsPage();
-          default:
-            return Text(
-              pageTitle,
-              style: theme.textTheme.headlineSmall,
-            );
-        }
-      },
+    GetColor colors = GetColor(context: context);
+    var size = MediaQuery.of(context).size;
+    return SafeArea(
+      child: CollapsibleSidebar(
+        isCollapsed: MediaQuery.of(context).size.width <= 800,
+        items: _items,
+        avatarImg: _avatarImg,
+        title: 'Nicola Cremonesi',
+        onTitleTap: () {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Yay! Flutter Collapsible Sidebar!')));
+        },
+        body: HomePage(), //_body(size, context),
+        backgroundColor: colors.canvasColor(),
+        selectedTextColor: colors.selectedRowColor(),
+        selectedIconColor: colors.highlightColor(),
+        unselectedIconColor: colors.unselectedItemColor(),
+        unselectedTextColor: colors.foregroundColor(),
+        selectedIconBox: colors.primaryDarkColor(),
+        textStyle: TextStyle(fontSize: 15, fontStyle: FontStyle.normal, color: colors.unselectedItemColor()),
+        titleStyle: TextStyle(
+          fontSize: 20,
+          fontStyle: FontStyle.normal,
+          fontWeight: FontWeight.bold,
+          color: colors.foregroundColor(),
+        ),
+        toggleTitleStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: colors.foregroundColor()),
+        sidebarBoxShadow: const [
+          BoxShadow(
+            color: Colors.transparent,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _body(Size size, BuildContext context) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      //color: Colors.blueGrey[50],
+      child: Center(
+        child: Transform.rotate(
+          angle: math.pi / 2,
+          child: Transform.translate(
+            offset: Offset(-size.height * 0.3, -size.width * 0.23),
+            child: Text(
+              _headline,
+              style: Theme.of(context).textTheme.headline1,
+              overflow: TextOverflow.visible,
+              softWrap: false,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
-
-String _getTitleByIndex(int index) {
-  switch (index) {
-    case 0:
-      return LocaleKeys.sidebar_home.tr();
-    case 1:
-      return LocaleKeys.sidebar_contact.tr();
-    case 2:
-      return LocaleKeys.sidebar_settings.tr();
-    /*case 3:
-      return 'Favorites';
-    case 4:
-      return 'Custom iconWidget';
-    case 5:
-      return 'Profile';
-    case 6:
-      return 'Settings';
-      */
-    default:
-      return 'Not found page';
-  }
-}
-
-/*
-        SidebarXItem(
-          icon: Icons.flag,
-          label: LocaleKeys.sidebar_settings.tr(),
-          onTap: (() {
-            context.setLocale(Locale("en"));
-            //_controller.setExtended(true);
-          }),
-        ),
-        */

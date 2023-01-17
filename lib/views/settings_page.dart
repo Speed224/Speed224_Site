@@ -1,3 +1,4 @@
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
 import 'package:speed224_site/translations/locale_keys.g.dart';
@@ -15,36 +16,49 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      //mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Expanded(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Text(
+        const Padding(
+          padding: EdgeInsets.all(5),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            //così non sfalsa quando il testo cambia
+            SizedBox(
+              width: 200,
+              child: Text(
                 LocaleKeys.settings_language.tr(),
                 style: _settingsTextStyle(),
               ),
-              DropdownButton(
-                value: selectedValue,
-                items: dropdownItem,
-                onChanged: (String? value) {
-                  setState(() {
-                    selectedValue = value!;
-                    switch (value) {
-                      case "Italiano":
-                        context.setLocale(const Locale(("it")));
-                        break;
-                      case "English":
-                        context.setLocale(const Locale(("en")));
-                        break;
-                    }
-                  });
-                },
-              ),
-            ],
-          ),
+            ),
+            DropdownButtonHideUnderline(
+                child: DropdownButton2(
+              value: selectedValue,
+              items: dropdownItem,
+              alignment: AlignmentDirectional.center,
+              onChanged: (String? value) {
+                setState(() {
+                  selectedValue = value!;
+                  switch (value) {
+                    case "Italiano":
+                      context.setLocale(const Locale(("it")));
+                      break;
+                    case "English":
+                      context.setLocale(const Locale(("en")));
+                      break;
+                  }
+                });
+              },
+            )),
+          ],
         ),
+        const Divider(
+          thickness: 1,
+          height: 10,
+        )
       ],
     );
   }
@@ -63,3 +77,5 @@ TextStyle _settingsTextStyle() {
     fontSize: 32,
   );
 }
+
+//TODO inserire una grandezza predefinita per il dropdown button

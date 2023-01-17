@@ -485,7 +485,7 @@
   },
   "platform": "windows",
   "primaryColor": "#ff6272a4",
-  "primaryColorDark": "#ff4e5b83",
+  "primaryColorDark": "#ff44475a",
   "primaryColorLight": "#fff8f8f2",
   "primaryIconTheme": {
     "color": "#ffffffff"

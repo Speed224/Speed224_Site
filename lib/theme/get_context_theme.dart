@@ -15,6 +15,10 @@ class GetColor {
 
   Color hoveredColor() => Theme.of(_context).hoverColor;
 
+  Color hintColor() => Theme.of(_context).hintColor;
+
+  Color selectedRowColor() => Theme.of(_context).selectedRowColor;
+
   //Color foregroundColor() => Theme.of(_context).primaryColorLight;
 
   Color foregroundColor() => Theme.of(_context).appBarTheme.foregroundColor!;
@@ -25,5 +29,7 @@ class GetColor {
 
   Color dialogBackgroundColor() => Theme.of(_context).dialogBackgroundColor;
 
-  Color unselectedItem() => Theme.of(_context).tabBarTheme.unselectedLabelColor!;
+  Color unselectedItemColor() => Theme.of(_context).tabBarTheme.unselectedLabelColor!;
+
+  Color highlightColor() => Theme.of(_context).highlightColor;
 }

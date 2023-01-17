@@ -1,3 +1,4 @@
+/*
 import 'package:flutter/material.dart';
 import 'package:sidebarx/sidebarx.dart';
 import 'package:speed224_site/theme/get_context_theme.dart';
@@ -14,17 +15,18 @@ SidebarXTheme sXTheme(
   GetColor colors = GetColor(context: context);
   return SidebarXTheme(
     width: width,
+    height: 400,
     itemTextPadding: EdgeInsets.only(left: itemPadding),
     selectedItemTextPadding: EdgeInsets.only(left: selectedItemPadding),
     //distance bar from left page
-    margin: const EdgeInsets.all(0),
+    margin: const EdgeInsets.all(10),
     //selected item box
     padding: const EdgeInsets.all(circularRadius),
     decoration: BoxDecoration(
       color: colors.canvasColor(),
       borderRadius: const BorderRadius.only(
-          topLeft: Radius.zero,
-          bottomLeft: Radius.zero,
+          topLeft: Radius.circular(circularRadius),
+          bottomLeft: Radius.circular(circularRadius),
           topRight: Radius.circular(circularRadius),
           bottomRight: Radius.circular(circularRadius)),
     ),
@@ -137,4 +139,5 @@ const draculaRed = Color.fromARGB(255, 255, 85, 85);
 
 const draculaYellow = Color.fromARGB(255, 241, 250, 140);
 
+*/
 */
