@@ -1,5 +1,6 @@
 import 'dart:math' as math show pi;
 
+import 'package:speed224_site/components/custom_page_view.dart';
 import 'package:speed224_site/theme/get_context_theme.dart';
 import 'package:collapsible_sidebar/collapsible_sidebar.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,12 @@ class _SideBarState extends State<SideBar> {
     super.initState();
     _items = _generateItems;
     _headline = _items.firstWhere((item) => item.isSelected).text;
+  }
+
+  void callback(Widget nextPage) {
+    setState(() {
+      _items.first.isSelected = true;
+    });
   }
 
   List<CollapsibleItem> get _generateItems {
@@ -59,7 +66,7 @@ class _SideBarState extends State<SideBar> {
         onTitleTap: () {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Yay! Flutter Collapsible Sidebar!')));
         },
-        body: HomePage(), //_body(size, context),
+        body: CustomPageView(), //_body(size, context),
         backgroundColor: colors.canvasColor(),
         selectedTextColor: colors.selectedRowColor(),
         selectedIconColor: colors.highlightColor(),

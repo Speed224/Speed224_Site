@@ -15,6 +15,25 @@ class _CustomPageViewState extends State<CustomPageView> {
 
   Duration duration = const Duration(milliseconds: 600);
 
+  callback(direction) {
+    setState(
+      () {
+        switch (direction) {
+          case "up":
+            controller.nextPage(duration: duration, curve: Curves.easeInOut).then((value) => pageIsScrolling = false);
+            break;
+          case "down":
+            controller
+                .previousPage(duration: duration, curve: Curves.easeInOut)
+                .then((value) => pageIsScrolling = false);
+            break;
+          default:
+            break;
+        }
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
