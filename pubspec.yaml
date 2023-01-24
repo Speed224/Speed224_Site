@@ -39,7 +39,11 @@ dependencies:
   easy_localization: ^3.0.1
   json_theme: ^4.0.3+2
   dropdown_button2: ^1.9.2
-  collapsible_sidebar: ^2.0.3+2
+  collapsible_sidebar: # ^2.0.3+2
+    path: C:/Users/Speed224/Desktop/Progetti/forked_collapsible_sidebar
+  flutter_bloc: ^8.1.1
+  equatable: ^2.0.5
+
 
 dev_dependencies:
   flutter_test:
@@ -99,3 +103,4 @@ flutter:
       - assets/icons/flags/it.png
       - assets/icons/flags/gb.png
       - assets/icons/flags/us.png
+      - assets/Foto.png
